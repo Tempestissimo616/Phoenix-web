@@ -86,13 +86,13 @@ function getThemeByTimeOfDay(timeOfDay: TimeOfDay): TimeTheme {
       textSecondary: "text-purple-700",
     },
     night: {
-      primary: "from-slate-400 to-blue-500",
-      secondary: "from-slate-300 to-slate-400",
-      accent: "from-blue-400 to-slate-400",
-      background: "from-slate-100 via-slate-200 to-blue-100",
-      cardBackground: "bg-slate-100/80",
-      textPrimary: "text-slate-800",
-      textSecondary: "text-slate-600",
+      primary: "from-sky-500 to-blue-600",                      // 亮蓝 → 稳重蓝
+      secondary: "from-sky-400 to-blue-500",                    // 稍淡冷蓝作为辅助
+      accent: "from-blue-400 to-indigo-500",                    // 提升一点紫调，增强高亮
+      background: "from-sky-200 via-sky-300 to-blue-200",       // 整体清透蓝背景
+      cardBackground: "bg-sky-100/60",                          // 轻雾卡片感
+      textPrimary: "text-slate-800",                            // 稍深的灰蓝，清晰不刺眼
+      textSecondary: "text-slate-600",                          // 稍微柔和一点的文字
     },
   }
   return themes[timeOfDay]
@@ -601,7 +601,7 @@ export default function ResumePage() {
               transition={{ delay: 0.2 }}
               className={`inline-block px-4 py-2 rounded-full ${theme.cardBackground} backdrop-blur mb-6`}
             >
-              <span className={`text-sm font-medium ${theme.textSecondary}`}>{getTimeOfDayMessage()}</span>
+              <span className={`text-lg font-medium ${theme.textSecondary}`}>{getTimeOfDayMessage()}</span>
             </motion.div>
 
             <motion.div className="relative w-40 h-40 mx-auto mb-8" variants={floatingVariants} animate="animate">
@@ -700,54 +700,57 @@ export default function ResumePage() {
       </section>
 
       {/* Skills Section */}
-      <section className={`py-20 px-4 ${theme.cardBackground} backdrop-blur`}>
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <motion.div className="inline-flex items-center gap-2 mb-4" whileHover={{ scale: 1.05 }}>
-              <Sparkles className="w-8 h-8 text-blue-500" />
-              <h2 className={`text-4xl font-bold ${theme.textPrimary}`}>Skills & Expertise</h2>
-            </motion.div>
-            <p className={`text-lg ${theme.textSecondary}`}>Technologies I work with</p>
-          </motion.div>
+<section className={`py-20 px-4 ${theme.cardBackground} backdrop-blur min-h-screen`}>
+  <div className="max-w-6xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <motion.div className="inline-flex items-center gap-2 mb-4" whileHover={{ scale: 1.05 }}>
+        <Sparkles className="w-8 h-8 text-blue-500" />
+        <h2 className={`text-4xl font-bold ${theme.textPrimary}`}>Skills & Expertise</h2>
+      </motion.div>
+      <p className={`text-lg ${theme.textSecondary}`}>Technologies I work with</p>
+    </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                variants={itemVariants}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-white/80 backdrop-blur rounded-xl p-6 shadow-lg border border-white/20"
-              >
-                <div className="flex justify-between items-center mb-3">
-                  <span className={`font-semibold ${theme.textPrimary}`}>{skill.name}</span>
-                  <span className={`text-sm ${theme.textSecondary}`}>{skill.level}%</span>
-                </div>
-                <div className="w-full bg-slate-200 rounded-full h-2">
-                  <motion.div
-                    className={`bg-gradient-to-r ${theme.primary} h-2 rounded-full`}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+    <motion.div
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ staggerChildren: 0.1 }}
+    >
+      {skills.map((skill, index) => (
+        <motion.div
+          key={skill.name}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.05 }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.03, y: -5 }}
+          className="bg-white/80 backdrop-blur rounded-xl p-6 shadow-lg border border-white/20"
+        >
+          <div className="flex justify-between items-center mb-3">
+            <span className={`font-semibold ${theme.textPrimary}`}>{skill.name}</span>
+            <span className={`text-sm ${theme.textSecondary}`}>{skill.level}%</span>
+          </div>
+          <div className="w-full bg-slate-200 rounded-full h-2">
+            <motion.div
+              className={`bg-gradient-to-r ${theme.primary} h-2 rounded-full`}
+              initial={{ width: 0 }}
+              whileInView={{ width: `${skill.level}%` }}
+              transition={{ duration: 1.2, delay: index * 0.05 }}
+              viewport={{ once: true }}
+            />
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</section>
 
       {/* Experience Section */}
       <section className="py-20 px-4">
@@ -903,10 +906,10 @@ export default function ResumePage() {
                         src={project.image || "/placeholder.svg"}
                         alt={project.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <motion.div
-                        className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-20 group-hover:opacity-40 transition-opacity duration-500`}
+                        className={`absolute inset-0 opacity-20 group-hover:  transition-opacity duration-500`}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
@@ -918,8 +921,8 @@ export default function ResumePage() {
                         viewport={{ once: true }}
                       >
                         <motion.h3
-                          className="text-2xl md:text-3xl font-bold text-white mb-2"
-                          whileHover={{ scale: 1.05 }}
+                          className="ml-2 text-2xl md:text-3xl font-bold text-white mb-2"
+                          whileHover={{ scale: 1.01 }}
                         >
                           {project.title}
                         </motion.h3>
@@ -928,7 +931,7 @@ export default function ResumePage() {
                             <Button
                               size="sm"
                               variant="secondary"
-                              className="bg-white/20 backdrop-blur text-white border-white/30 hover:bg-white/30"
+                              className="ml-2 bg-white/20 backdrop-blur text-white border-white/30 hover:bg-white/30"
                             >
                               <Github className="w-4 h-4 mr-2" />
                               Code
