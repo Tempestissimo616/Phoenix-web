@@ -91,6 +91,20 @@ const config: Config = {
   		}
   	}
   },
+  safelist: [
+	{
+		pattern: /from-(amber|sky|blue|purple|pink|slate|cyan|teal|orange|indigo)-\d+/,
+	},
+	{
+		pattern: /to-(amber|sky|blue|purple|pink|slate|cyan|teal|orange|indigo)-\d+/,
+	},
+	{
+		pattern: /bg-(amber|sky|blue|purple|pink|slate|cyan|teal|orange|indigo)-\d+\/?\d*/,
+	},
+	{
+		pattern: /text-(amber|sky|blue|purple|pink|slate|cyan|teal|orange|indigo)-\d+/,
+	},
+  ],
   plugins: [require("tailwindcss-animate")],
 };
 export default config;
