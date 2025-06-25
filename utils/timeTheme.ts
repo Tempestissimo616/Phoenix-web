@@ -1,5 +1,6 @@
 import type { TimeTheme, TimeOfDay } from "@/types"
 
+// theme editor
 export function getCurrentTimeTheme(): TimeTheme {
   const hour = new Date().getHours()
   return getThemeByTimeOfDay(getTimeOfDayFromHour(hour))
@@ -42,16 +43,15 @@ export function getThemeByTimeOfDay(timeOfDay: TimeOfDay): TimeTheme {
       textSecondary: "text-purple-700",
     },
     night: {
-      primary: "from-indigo-400 to-purple-500",
-      secondary: "from-blue-300 to-indigo-400",
-      accent: "from-violet-400 to-indigo-400",
-      background: "from-slate-900 via-indigo-900 to-purple-900",
-      cardBackground: "bg-slate-800/80",
-      textPrimary: "text-slate-100",
-      textSecondary: "text-slate-300",
+      primary: "from-sky-500 to-blue-600",                     
+      secondary: "from-sky-400 to-blue-500",                   
+      accent: "from-blue-400 to-indigo-500",                    
+      background: "from-sky-200 via-sky-300 to-blue-200",      
+      cardBackground: "bg-sky-100/60",                         
+      textPrimary: "text-slate-800",                          
+      textSecondary: "text-slate-600",                         
     },
   }
-
   return themes[timeOfDay]
 }
 
@@ -74,7 +74,6 @@ export function getSliderValueFromTimeOfDay(timeOfDay: TimeOfDay): number {
 
 export function getTimeOfDayMessage(): string {
   const hour = new Date().getHours()
-
   if (hour >= 6 && hour < 12) return "Good Morning! ☀️"
   if (hour >= 12 && hour < 18) return "Good Afternoon! 🌤️"
   if (hour >= 18 && hour < 22) return "Good Evening! 🌅"
