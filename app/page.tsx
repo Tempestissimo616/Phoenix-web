@@ -633,7 +633,7 @@ export default function ResumePage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: index * 0.05 }}
           viewport={{ once: true }}
-          whileHover={{ scale: 1.03, y: -5 }}
+          whileHover={{ scale: 1.04, y: -5 }}
           className="bg-white/80 backdrop-blur rounded-xl p-6 shadow-lg border border-white/20"
         >
           <div className="flex justify-between items-center mb-3">
@@ -765,7 +765,7 @@ export default function ResumePage() {
         </div>
       </section>
 
-      {/* 🎯 修改后的 Projects Section - 使用与 Experience 相同的动画 */}
+      {/* Projects Section */}
       <section className={`py-20 px-4 ${theme.cardBackground}/50`}>
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -782,7 +782,7 @@ export default function ResumePage() {
             <p className={`text-lg ${theme.textSecondary}`}>Selected projects I've worked on</p>
           </motion.div>
 
-          {/* 🔄 使用与 Experience 相同的动画系统 */}
+          {/* Experience */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
