@@ -42,6 +42,10 @@ const FloatingElements = dynamic(() => import("@/components/FloatingElements"), 
 });
 
 
+
+
+
+
 type ThemeMode = "auto" | "manual"
 type TimeOfDay = "morning" | "afternoon" | "evening" | "night"
 

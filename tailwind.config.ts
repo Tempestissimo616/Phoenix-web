@@ -92,18 +92,33 @@ const config: Config = {
   	}
   },
   safelist: [
-	{
-		pattern: /from-(amber|sky|blue|purple|pink|slate|cyan|teal|orange|indigo)-\d+/,
-	},
-	{
-		pattern: /to-(amber|sky|blue|purple|pink|slate|cyan|teal|orange|indigo)-\d+/,
-	},
-	{
-		pattern: /bg-(amber|sky|blue|purple|pink|slate|cyan|teal|orange|indigo)-\d+\/?\d*/,
-	},
-	{
-		pattern: /text-(amber|sky|blue|purple|pink|slate|cyan|teal|orange|indigo)-\d+/,
-	},
+    // Morning 
+    'from-amber-400', 'to-orange-500',
+    'from-yellow-300', 'to-amber-400',
+    'from-orange-400', 'to-red-400',
+    'from-amber-50', 'via-orange-50', 'to-yellow-100',
+    'bg-amber-50/80', 'text-amber-900', 'text-amber-700',
+
+    // Afternoon 
+    'from-blue-400', 'to-cyan-500',
+    'from-sky-300', 'to-blue-400',
+    'from-cyan-400', 'to-teal-400',
+    'from-sky-50', 'via-blue-50', 'to-cyan-100',
+    'bg-sky-50/80', 'text-sky-900', 'text-sky-700',
+
+    // Evening 
+    'from-purple-400', 'to-pink-500',
+    'from-violet-300', 'to-purple-400',
+    'from-pink-400', 'to-rose-400',
+    'from-purple-50', 'via-pink-50', 'to-rose-100',
+    'bg-purple-50/80', 'text-purple-900', 'text-purple-700',
+
+    // Night 
+    'from-sky-500', 'to-blue-600',
+    'from-sky-400', 'to-blue-500',
+    'from-blue-400', 'to-indigo-500',
+    'from-sky-200', 'via-sky-300', 'to-blue-200',
+    'bg-sky-100/60', 'text-slate-800', 'text-slate-600'
   ],
   plugins: [require("tailwindcss-animate")],
 };
