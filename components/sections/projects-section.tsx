@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button"
 import { Code, Github, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import { projects } from "@/data/resume"
-import { getCurrentTimeTheme } from "@/utils/timeTheme"
+import { TimeTheme } from "@/types"
+import { containerVariants, itemVariants } from "@/config/animations"
 
-export function ProjectsSection() {
-  const theme = getCurrentTimeTheme()
+export function ProjectsSection({theme} : {theme: TimeTheme}) {
 
   return (
     <section className={`py-20 px-4 ${theme.cardBackground}/50`}>
@@ -23,20 +23,26 @@ export function ProjectsSection() {
           className="text-center mb-16"
         >
           <motion.div className="inline-flex items-center gap-2 mb-4" whileHover={{ scale: 1.05 }}>
-            <Code className={`w-8 h-8 bg-gradient-to-r ${theme.accent} bg-clip-text`} />
+            <Code className="w-8 h-8 text-green-500" />
             <h2 className={`text-4xl font-bold ${theme.textPrimary}`}>Featured Projects</h2>
           </motion.div>
           <p className={`text-lg ${theme.textSecondary}`}>Selected projects I've worked on</p>
         </motion.div>
 
-        <div className="space-y-16">
+        {/* Experience */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="space-y-16"
+        >
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true, margin: "-100px" }}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
               className="group"
             >
               <Card className="overflow-hidden bg-white/80 backdrop-blur border-0 shadow-2xl hover:shadow-3xl transition-all duration-500">
@@ -50,10 +56,10 @@ export function ProjectsSection() {
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <motion.div
-                      className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-20 group-hover:opacity-40 transition-opacity duration-500`}
+                      className={`absolute inset-0 opacity-20 group-hover:  transition-opacity duration-500`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
@@ -62,10 +68,11 @@ export function ProjectsSection() {
                       initial={{ y: 20, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.3 }}
+                      viewport={{ once: true }}
                     >
                       <motion.h3
-                        className="text-2xl md:text-3xl font-bold text-white mb-2"
-                        whileHover={{ scale: 1.05 }}
+                        className="ml-2 text-2xl md:text-3xl font-bold text-white mb-2"
+                        whileHover={{ scale: 1.01 }}
                       >
                         {project.title}
                       </motion.h3>
@@ -74,7 +81,7 @@ export function ProjectsSection() {
                           <Button
                             size="sm"
                             variant="secondary"
-                            className="bg-white/20 backdrop-blur text-white border-white/30 hover:bg-white/30"
+                            className="ml-2 bg-white/20 backdrop-blur text-white border-white/30 hover:bg-white/30"
                           >
                             <Github className="w-4 h-4 mr-2" />
                             Code
@@ -97,6 +104,7 @@ export function ProjectsSection() {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
+                    viewport={{ once: true }}
                   >
                     {project.description}
                   </motion.p>
@@ -106,6 +114,7 @@ export function ProjectsSection() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
+                    viewport={{ once: true }}
                   >
                     <h4 className={`font-semibold ${theme.textPrimary} mb-3`}>Key Features:</h4>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -133,6 +142,7 @@ export function ProjectsSection() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7 }}
+                    viewport={{ once: true }}
                   >
                     <h4 className={`font-semibold ${theme.textPrimary} mb-3`}>Tech Stack:</h4>
                     <div className="flex flex-wrap gap-2">
@@ -156,7 +166,7 @@ export function ProjectsSection() {
               </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

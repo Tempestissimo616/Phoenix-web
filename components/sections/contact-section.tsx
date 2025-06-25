@@ -3,10 +3,9 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { User, Mail } from "lucide-react"
-import { getCurrentTimeTheme } from "@/utils/timeTheme"
+import { TimeTheme } from "@/types"
 
-export function ContactSection() {
-  const theme = getCurrentTimeTheme()
+export function ContactSection({theme} : {theme: TimeTheme}) {
 
   return (
     <section className="py-20 px-4">
@@ -18,7 +17,7 @@ export function ContactSection() {
           viewport={{ once: true }}
         >
           <motion.div className="inline-flex items-center gap-2 mb-4" whileHover={{ scale: 1.05 }}>
-            <User className={`w-8 h-8 bg-gradient-to-r ${theme.primary} bg-clip-text`} />
+            <User className="w-8 h-8 text-blue-500" />
             <h2 className={`text-4xl font-bold ${theme.textPrimary}`}>Let's Connect</h2>
           </motion.div>
           <p className={`text-lg ${theme.textSecondary} mb-8`}>

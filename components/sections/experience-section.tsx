@@ -5,11 +5,10 @@ import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/c
 import { Badge } from "@/components/ui/badge"
 import { Briefcase, MapPin, Calendar } from "lucide-react"
 import { experiences } from "@/data/resume"
-import { getCurrentTimeTheme } from "@/utils/timeTheme"
 import { containerVariants, itemVariants } from "@/config/animations"
+import { TimeTheme } from "@/types"
 
-export function ExperienceSection() {
-  const theme = getCurrentTimeTheme()
+export function ExperienceSection({theme} : {theme: TimeTheme}) {
 
   return (
     <section className="py-20 px-4">
@@ -22,7 +21,7 @@ export function ExperienceSection() {
           className="text-center mb-16"
         >
           <motion.div className="inline-flex items-center gap-2 mb-4" whileHover={{ scale: 1.05 }}>
-            <Briefcase className={`w-8 h-8 bg-gradient-to-r ${theme.secondary} bg-clip-text`} />
+            <Briefcase className="w-8 h-8 text-purple-500" />
             <h2 className={`text-4xl font-bold ${theme.textPrimary}`}>Work Experience</h2>
           </motion.div>
           <p className={`text-lg ${theme.textSecondary}`}>My professional journey</p>
