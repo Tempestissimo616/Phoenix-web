@@ -86,7 +86,7 @@ function getThemeByTimeOfDay(timeOfDay: TimeOfDay): TimeTheme {
       textSecondary: "text-purple-700",
     },
     night: {
-      primary: "from-sky-500 to-blue-600",        
+      primary: "from-sky-500 to-blue-600",                     
       secondary: "from-sky-400 to-blue-500",                   
       accent: "from-blue-400 to-indigo-500",                    
       background: "from-sky-200 via-sky-300 to-blue-200",      
@@ -606,7 +606,7 @@ export default function ResumePage() {
                 src={personalInfo.avatar || "/placeholder.svg"}
                 alt="Profile"
                 fill
-                className="rounded-full object-cover border-4 border-white shadow-2xl relative z-10"
+                className="rounded-full object-cover border-5 [object-position:50%_30%] shadow-2xl relative z-10"
               />
               <motion.div
                 className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-4 border-white"
