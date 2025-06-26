@@ -71,12 +71,13 @@ export function ProjectsSection({theme} : {theme: TimeTheme}) {
                       viewport={{ once: true }}
                     >
                       <motion.h3
-                        className="ml-2 text-2xl md:text-3xl font-bold text-white mb-2"
+                        className={`ml-2 text-2xl md:text-3xl font-bold text-white drop-shadow-[0_0_1px_#000] mb-2`}
                         whileHover={{ scale: 1.01 }}
                       >
                         {project.title}
                       </motion.h3>
-                      <div className="flex gap-2 mb-4">
+                      
+                      {project.display && <div className="flex gap-2 mb-4">
                         <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                           <Button
                             size="sm"
@@ -93,7 +94,7 @@ export function ProjectsSection({theme} : {theme: TimeTheme}) {
                             Live Demo
                           </Button>
                         </motion.div>
-                      </div>
+                      </div>}
                     </motion.div>
                   </motion.div>
                 </div>

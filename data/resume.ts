@@ -43,6 +43,7 @@ export const projects: Project[] = [
     github: "https://github.com/Tempestissimo616/Phoenix-web",
     demo: "https://demo.example.com",
     color: "from-blue-500 to-cyan-500",
+    display: false,
   },
   {
     title: "AI Q&A System",
@@ -59,6 +60,7 @@ export const projects: Project[] = [
     github: "https://github.com/username/task-manager",
     demo: "https://task-demo.example.com",
     color: "from-purple-500 to-pink-500",
+    display: false,
   },
   {
     title: "NLP-Based Sentiment Analysis for Amazon Text-Review",
@@ -75,6 +77,7 @@ export const projects: Project[] = [
     github: "https://github.com/username/blog",
     demo: "https://blog.example.com",
     color: "from-green-500 to-teal-500",
+    display: false,
   },
   {
     title: "Train Pathfinding Visualizer",
@@ -90,6 +93,7 @@ export const projects: Project[] = [
     github: "https://github.com/username/ai-chat",
     demo: "https://chat-demo.example.com",
     color: "from-orange-500 to-red-500",
+    display: false,
   },
 ]
 

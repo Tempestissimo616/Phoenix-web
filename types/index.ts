@@ -18,6 +18,7 @@ export interface Project {
   github: string
   demo: string
   color: string
+  display?: boolean
 }
 
 export interface Skill {
