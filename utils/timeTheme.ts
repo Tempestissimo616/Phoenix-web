@@ -1,3 +1,4 @@
+'use client'
 import type { TimeTheme, TimeOfDay } from "@/types"
 
 // theme editor
