@@ -78,12 +78,6 @@ function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
 
 
 
-
-// ThemeSlider preview and apply feature
-
-
-
-
 // Theme Hook
 function useTheme() {
   const [mode, setMode] = useState<ThemeMode>("auto")

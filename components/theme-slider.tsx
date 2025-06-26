@@ -7,6 +7,8 @@ import type { TimeOfDay } from "@/types"
 import { getTimeOfDayFromSlider, getSliderValueFromTimeOfDay, getThemeByTimeOfDay } from "@/utils/timeTheme"
 import { useEffect, useState } from "react"
 
+
+// ThemeSlider preview and apply feature
 interface ThemeSliderProps {
   value: TimeOfDay
   onChange: (timeOfDay: TimeOfDay) => void
