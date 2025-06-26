@@ -35,6 +35,8 @@ import { SkillsSection } from "@/components/sections/skills-section"
 import { ExperienceSection } from "@/components/sections/experience-section"
 import { ProjectsSection } from "@/components/sections/projects-section"
 import { ContactSection } from "@/components/sections/contact-section"
+import { ScrollProgress } from "@/components/scrollProgress"
+
 
 
 const FloatingElements = dynamic(() => import("@/components/FloatingElements"), {
@@ -73,17 +75,7 @@ function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
   )
 }
 
-// themeSlider bar component
-function ScrollProgress({ theme }: { theme: TimeTheme }) {
-  const { scrollYProgress } = useScroll()
 
-  return (
-    <motion.div
-      className={`fixed top-0 left-0 right-0 h-1 bg-gradient-to-r ${theme.primary} z-40 origin-left`}
-      style={{ scaleX: scrollYProgress }}
-    />
-  )
-}
 
 
 // ThemeSlider preview and apply feature

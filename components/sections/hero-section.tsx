@@ -96,28 +96,32 @@ export function HeroSection({ theme }: HeroSectionProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.6 }}
           >
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <a href="https://github.com/Tempestissimo616/Phoenix-web" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className={`${theme.cardBackground} backdrop-blur border-2 hover:bg-white/90`}>
+                  <Github className="w-4 h-4 mr-2" />
+                  GitHub
+                </Button>            
+              </a>
+          </motion.div>
 
-            <a href="https://github.com/Tempestissimo616/Phoenix-web" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className={`${theme.cardBackground} backdrop-blur border-2 hover:bg-white/90`}>
-              <Github className="w-4 h-4 mr-2" />
-              GitHub
-            </Button>            
-            </a>
-
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <a href="https://www.linkedin.com/in/yuexi-sun-a2ba0a242/" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className={`${theme.cardBackground} backdrop-blur border-2 hover:bg-white/90`}>
                 <Linkedin className="w-4 h-4 mr-2" />
                 LinkedIn
               </Button>
             </a>
+          </motion.div>
 
-
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <a href="/files/Yuexi-Sun-Resume2025.pdf" download>
               <Button className={`bg-gradient-to-r ${theme.primary} hover:opacity-90 text-white`}>
                 <Download className="w-4 h-4 mr-2" />
                 Download CV
               </Button>
             </a>
+          </motion.div>
           </motion.div>
 
           <motion.div
