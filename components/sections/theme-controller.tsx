@@ -1,32 +1,35 @@
-"use client"
-
+`use client`
+import { ThemeMode, TimeOfDay } from "@/types"
+import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ThemeSlider } from "./theme-slider"
-import { Settings, Sun, Moon, Clock, Palette } from "lucide-react"
-import type { ThemeMode, TimeOfDay } from "@/types"
+import { Button } from "../ui/button"
+import { Clock, Moon, Palette, Settings, Sun } from "lucide-react"
+import { ThemeSlider } from "../theme-slider"
 
-interface ThemeControlProps {
+// ThemeControl Component
+export function ThemeControl({
+  mode,
+  manualTimeOfDay,
+  onToggleMode,
+  onManualThemeChange,
+}: {
   mode: ThemeMode
   manualTimeOfDay: TimeOfDay
   onToggleMode: () => void
   onManualThemeChange: (timeOfDay: TimeOfDay) => void
-}
-
-export function ThemeControl({ mode, manualTimeOfDay, onToggleMode, onManualThemeChange }: ThemeControlProps) {
+}) {
   const [isOpen, setIsOpen] = useState(false)
 
-  const togglePanel = () => {
-    setIsOpen(!isOpen)
+  const 
+  handleApplyTheme = (timeOfDay: TimeOfDay) => {
+    onManualThemeChange(timeOfDay)
   }
 
   return (
     <div className="fixed top-6 right-6 z-50">
-      {/* Control Button */}
       <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
         <Button
-          onClick={togglePanel}
+          onClick={() => setIsOpen(!isOpen)}
           size="lg"
           className="bg-white/90 backdrop-blur text-slate-700 hover:bg-white border border-white/20 shadow-lg"
         >
@@ -37,7 +40,6 @@ export function ThemeControl({ mode, manualTimeOfDay, onToggleMode, onManualThem
         </Button>
       </motion.div>
 
-      {/* Control Panel */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -48,7 +50,6 @@ export function ThemeControl({ mode, manualTimeOfDay, onToggleMode, onManualThem
             className="absolute top-16 right-0 z-50"
           >
             <div className="bg-white/95 backdrop-blur rounded-2xl shadow-2xl border border-white/20 p-6 min-w-80">
-              {/* Mode Toggle */}
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-slate-800 mb-4">Theme Control</h3>
 
@@ -93,7 +94,6 @@ export function ThemeControl({ mode, manualTimeOfDay, onToggleMode, onManualThem
                 </p>
               </div>
 
-              {/* Manual Theme Slider */}
               <AnimatePresence>
                 {mode === "manual" && (
                   <motion.div
@@ -102,12 +102,15 @@ export function ThemeControl({ mode, manualTimeOfDay, onToggleMode, onManualThem
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ThemeSlider value={manualTimeOfDay} onChange={onManualThemeChange} />
+                    <ThemeSlider
+                      value={manualTimeOfDay}
+                      onChange={() => {}} // 不再使用这个回调
+                      onApply={handleApplyTheme} // 新的应用回调
+                    />
                   </motion.div>
                 )}
               </AnimatePresence>
 
-              {/* Auto Mode Info */}
               <AnimatePresence>
                 {mode === "auto" && (
                   <motion.div
@@ -135,7 +138,6 @@ export function ThemeControl({ mode, manualTimeOfDay, onToggleMode, onManualThem
         )}
       </AnimatePresence>
 
-      {/* Backdrop */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -143,7 +145,7 @@ export function ThemeControl({ mode, manualTimeOfDay, onToggleMode, onManualThem
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/10 backdrop-blur-sm -z-10"
-            onClick={togglePanel}
+            onClick={() => setIsOpen(false)}
           />
         )}
       </AnimatePresence>
