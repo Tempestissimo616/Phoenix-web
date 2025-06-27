@@ -43,6 +43,16 @@ export const projects: Project[] = [
     github: "https://github.com/Tempestissimo616/Phoenix-web",
     demo: "https://demo.example.com",
     color: "from-blue-500 to-cyan-500",
+    detailTitle: "TraceMyself Tracking System",
+    period: "May 2025 – Present",
+    detailDescription:[
+      "Built a full-stack personal knowledge-tracking platform with Next.js and TypeScript to document my computer-science history, including features such as clear pagination with sorting, searchable categories, and progress tagging.",
+      "Implemented secure, role-based authentication and session management with NextAuth.js.",
+      "Built a dynamic, time-aware UI system with auto-theming and physics-based animations using Tailwind with Framer Motion, featuring real-time theme previews and cinematic transitions.",
+      "Integrated Prisma with MySQL to model data relationships and ensure type-safe database interactions.",
+      "Optimized web performance by implementing lazy loading, image compression, etc. in Next.js.",
+      "Deploying to Vercel Cloud Server: Phoenix Web (Application is still in Progress...)"
+    ],
     display: false,
   },
   {
@@ -60,6 +70,15 @@ export const projects: Project[] = [
     github: "https://github.com/username/task-manager",
     demo: "https://task-demo.example.com",
     color: "from-purple-500 to-pink-500",
+    detailTitle: "AI Q&A System: full-stack web app development",
+    period: "2023 – 2024",
+    detailDescription:[
+      "Built Register and Login REST APIs using Spring Security and JWT to implement Role-Based Authorization.",
+      "Designed style Web Pages and interactive chat components with Material-UI to achieve user-friendly UI.",
+      "Integrated ChatGPT API to automatically respond by gathering data from Web DOM using web scraping.",
+      "Automated ChatGPT responses by combining answers from Web DOM using free ChatGPT usage limits with auto-login Chrome extension JSON script instead of Paid API.",
+      "New Feature: Developed context-aware chat by storing & retrieving conversation history from MySQL."
+    ],
     display: false,
   },
   {
@@ -77,6 +96,15 @@ export const projects: Project[] = [
     github: "https://github.com/username/blog",
     demo: "https://blog.example.com",
     color: "from-green-500 to-teal-500",
+    detailTitle: "NLP-Based Sentiment Analysis for Amazon Text-Review",
+    period: "Jan 2025 – Apr 2025",
+    detailDescription:[
+      "Developed a sentiment classification system using Natural Language Processing (NLP) to analyze emotional tone in real-world Amazon product review datasets, comparing the accuracy results from NLTK-based VADER models and transformer-based RoBERTa models within 500k+ product reviews.",
+      "Built a data scraper using Playwright (Python) to extract dynamically rendered Amazon reviews from JavaScript-heavy web pages to search missing data with preventing runtime interruption ability.",
+      "Customized a Hugging Face Transformer-based RoBERTa with PyTorch to extract contextual logits and convert them to interpretable sentiment scores via softmax post-processing.",
+      "Designed a unified evaluation pipeline to align and compare VADER and RoBERTa sentiment outputs to visualize model behavior such as confidence and correlation using Seaborn pair plot.",
+      "Leveraged Pandas, tqdm, and matplotlib, combined with outlier handling strategies to improve evaluation."
+    ],
     display: false,
   },
   {
@@ -93,6 +121,13 @@ export const projects: Project[] = [
     github: "https://github.com/username/ai-chat",
     demo: "https://chat-demo.example.com",
     color: "from-orange-500 to-red-500",
+    detailTitle: "Train Pathfinding Visualizer (School Team Project)",
+    period: "Winter 2024",
+    detailDescription:[
+      "Developed comparative pathfinding analyzer implementing A* (with heuristic function) vs Dijkstra's algorithms, improving 35% runtime speed compared with Dijkstra’s algorithm.",
+      "Processed real-world London Underground dataset with adaptive graph weighting.",
+      "Visualized performance metrics (time/space complexity) using Matplotlib across 45,000+ station pairs."
+    ],
     display: false,
   },
 ]

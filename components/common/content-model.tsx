@@ -5,8 +5,9 @@ import { Button } from '../ui/button'
 import { ExternalLink, X } from 'lucide-react'
 import { is } from 'date-fns/locale'
 import { createPortal } from 'react-dom'
+import { Project } from '@/types'
 
-const ContentModel = () => {
+const ContentModel = ({project} : {project: Project}) => {
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -50,7 +51,7 @@ const ContentModel = () => {
                 {/* Header */}
                 <div className="border-b border-slate-200 dark:border-slate-700 p-4 flex justify-between items-center bg-slate-50 dark:bg-slate-800">
                   <h2 className="text-xl font-bold text-slate-800 dark:text-white">
-                    {projectData.title}
+                    {project.detailTitle}
                   </h2>
                   <button 
                     onClick={() => setIsOpen(false)}
@@ -65,10 +66,10 @@ const ContentModel = () => {
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">
-                        {projectData.period}
+                        {project.period}
                       </h3>
                       <ul className="space-y-3 text-slate-700 dark:text-slate-300">
-                        {projectData.description.map((item, index) => (
+                        {project.detailDescription?.map((item, index) => (
                           <li key={index} className="flex items-start">
                             <span className="bullet">▪</span>
                             <span>{item}</span>
@@ -83,10 +84,10 @@ const ContentModel = () => {
                         Tech Stack
                       </h3>
                       <div className="flex flex-wrap gap-2">
-                        {projectData.techStack.map((tech) => (
+                        {project.technologies?.map((tech) => (
                           <span 
                             key={tech}
-                            className="px-3 py-1 bg-slate-100 dark:bg-slate-700 rounded-full text-sm text-slate-800 dark:text-slate-200"
+                            className="px-3 py-1 bg-slate-100 dark:bg-slate-700 rounded-full text-sm text-slate-800 dark:text-slate-200 hover: scale-105"
                           >
                             {tech}
                           </span>

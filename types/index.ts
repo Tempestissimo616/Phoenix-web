@@ -18,6 +18,9 @@ export interface Project {
   github: string
   demo: string
   color: string
+  detailTitle: string
+  detailDescription: string[]
+  period: string
   display?: boolean
 }
 

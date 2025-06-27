@@ -98,7 +98,7 @@ const ContentModal = dynamic(
                           </Button>
                         </motion.div>)}
 
-                       <ContentModal/> 
+                       <ContentModal project={project} /> 
 
                         {/* <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                           <Button size="sm" className="bg-white text-slate-900 hover:bg-white/90">
