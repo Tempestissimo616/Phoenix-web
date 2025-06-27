@@ -26,12 +26,11 @@ export function ThemeControl({
   }
 
   return (
-    <div className="fixed top-6 right-6 z-50">
+    <div className=" fixed top-4 right-4 z-50  lg:top-6 lg:right-6">
       <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          size="lg"
-          className="bg-white/90 backdrop-blur text-slate-700 hover:bg-white border border-white/20 shadow-lg"
+          className="bg-white/90 backdrop-blur text-slate-700 hover:bg-white border border-white/20 shadow-lg px-4 py-2  lg:px-7 lg:py-[22px] lg:textPrimary"
         >
           <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
             <Settings className="w-5 h-5 mr-2" />
