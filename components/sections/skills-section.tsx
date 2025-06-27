@@ -7,6 +7,7 @@ import { TimeTheme } from "@/types"
 
 export function SkillsSection({theme} : {theme: TimeTheme} ) {
 
+
   return (
     <section className={`py-20 px-4 min-h-screen`}>
       <div className="max-w-6xl mx-auto">

@@ -121,5 +121,13 @@ const config: Config = {
     'bg-sky-100/60', 'text-slate-800', 'text-slate-600'
   ],
   plugins: [require("tailwindcss-animate")],
+
+	daisyui: {
+	base: true,                     
+	styled: true,                      
+	utils: true,                         
+	prefix: "",                          
+	logs: true,                  
+  },
 };
 export default config;

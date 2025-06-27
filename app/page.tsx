@@ -44,6 +44,14 @@ const FloatingElements = dynamic(() => import("@/components/FloatingElements"), 
   ssr: false, // only render on client
 });
 
+const ContentModal = dynamic(
+  () => import("@/components/common/content-model"),
+  { 
+    ssr: false,
+    loading: () => <p>loading...</p> 
+  }
+);
+
 
 
 type ThemeMode = "auto" | "manual"

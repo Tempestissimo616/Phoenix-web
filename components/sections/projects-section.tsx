@@ -9,9 +9,18 @@ import Image from "next/image"
 import { projects } from "@/data/resume"
 import { TimeTheme } from "@/types"
 import { containerVariants, itemVariants } from "@/config/animations"
+import dynamic from "next/dynamic"
+
 
 export function ProjectsSection({theme} : {theme: TimeTheme}) {
 
+const ContentModal = dynamic(
+  () => import("@/components/common/content-model"),
+  { 
+    ssr: false,
+    loading: () => <p>loading...</p> 
+  }
+);
   return (
     <section className={`py-20 px-4 ${theme.cardBackground}/50`}>
       <div className="max-w-4xl mx-auto">
@@ -77,8 +86,8 @@ export function ProjectsSection({theme} : {theme: TimeTheme}) {
                         {project.title}
                       </motion.h3>
                       
-                      {project.display && <div className="flex gap-2 mb-4">
-                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                      <div className="flex gap-2 mb-4">
+                        {project.display && (<motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                           <Button
                             size="sm"
                             variant="secondary"
@@ -87,14 +96,17 @@ export function ProjectsSection({theme} : {theme: TimeTheme}) {
                             <Github className="w-4 h-4 mr-2" />
                             Code
                           </Button>
-                        </motion.div>
-                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                        </motion.div>)}
+
+                       <ContentModal/> 
+
+                        {/* <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                           <Button size="sm" className="bg-white text-slate-900 hover:bg-white/90">
                             <ExternalLink className="w-4 h-4 mr-2" />
                             Live Demo
                           </Button>
-                        </motion.div>
-                      </div>}
+                        </motion.div> */}
+                      </div>
                     </motion.div>
                   </motion.div>
                 </div>
