@@ -113,13 +113,15 @@ const ContentModal = dynamic(
 
                 <CardContent className="p-8">
                   <motion.p
-                    className={`${theme.textSecondary} mb-6 text-lg leading-relaxed`}
+                    className={`${theme.textSecondary} mb-6 text-xl leading-relaxed`}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
                     viewport={{ once: true }}
                   >
-                    {project.description}
+                    <div className="font-bold">
+                        {project.description}
+                    </div>
                   </motion.p>
 
                   <motion.div
