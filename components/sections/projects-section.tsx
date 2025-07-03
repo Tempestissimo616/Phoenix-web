@@ -112,7 +112,7 @@ const ContentModal = dynamic(
                 </div>
 
                 <CardContent className="p-8">
-                  <motion.p
+                  <motion.div
                     className={`${theme.textSecondary} mb-6 text-xl leading-relaxed`}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -122,7 +122,7 @@ const ContentModal = dynamic(
                     <div className="font-bold">
                         {project.description}
                     </div>
-                  </motion.p>
+                  </motion.div>
 
                   <motion.div
                     className="mb-6"
